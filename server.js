@@ -7,6 +7,8 @@ const fsPromises = require('fs').promises;
 const app = express();
 const cors = require('cors')
 const corsOptions = require('./app/configuration/corsOptions.js');
+require('dotenv').config()
+
 //--------------- middlewares imports ------------------
 const {requestLogger, errorLogger} = require('./app/middleware/logEvents.js');
 const errorHandler = require('./app/middleware/errorHandler.js');
