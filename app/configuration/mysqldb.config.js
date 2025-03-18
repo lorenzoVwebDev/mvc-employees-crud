@@ -1,14 +1,16 @@
 const mysql = require('mysql');
-const { errorCreator } = require('commonFunctions.js');
+const { errorCreator } = require('./commonFunctions.js');
 
 require('dotenv').config();
 
-const mysqlQuery = (query) => {
+const mysqlQuery = (query, placeHolders, resolve, reject) => {
+  let result = undefined;
+
   const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: process.env.MYSQL_PASSWORD,
-    database: 'mvc_users_crud'
+    database: 'mvc_employees_crud'
   })
 
   connection.connect((err) => {
@@ -18,15 +20,15 @@ const mysqlQuery = (query) => {
     }
   })
   
-  connection.query(query, (error, results, fields) => {
+  connection.query(query, placeHolders, (error, results, fields) => {
     if (error) {
+      reject(error)
       connection.destroy()
-      throw errorCreator(err.message, 'error', __filename);
+    } else {
+      resolve(results)
+      connection.end()
     };
-    console.log(results)
   })
-
-  connection.end()
 }
 
-module.exports = mysqlQuery
+module.exports = { mysqlQuery }
