@@ -1,4 +1,4 @@
-# "mvc-users-crud"
+# "mvc-employees-crud"
   A node web server based on MVC that serves log files and set the allowed origins/headers for CORS. It includes the error handling middleware at the end of the chain. It also performs api crud operations on the employees mysql table 
 ## Features
 - mvc structure
