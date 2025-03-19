@@ -1,5 +1,5 @@
 # "mvc-users-crud"
-  A node web server based on MVC that serves log files and set the allowed origins/headers for CORS. It includes the error handling middleware at the end of the chain.
+  A node web server based on MVC that serves log files and set the allowed origins/headers for CORS. It includes the error handling middleware at the end of the chain. It also performs api crud operations on the employees mysql table 
 ## Features
 - mvc structure
 - Routing 
@@ -7,6 +7,9 @@
 - express method .static() to serve static files from the public folder 
 - cors configuration to handle preflight requests and permissions for origins
 - express error handling and error logs 
+- rest api routing
+- crud operations on the employees mysql tables 
+- mysqldb.config.js to dynamically creates queries over the whole backend framework
 
 ## installation
 
